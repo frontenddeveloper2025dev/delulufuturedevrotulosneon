@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delulu Future Dev 🪩</title>
+    <title>Delulu Future Dev 💜</title>
     <script src="/_sdk/element_sdk.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -34,6 +34,27 @@
         }
       }
 
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
       .float-animation {
         animation: float 3s ease-in-out infinite;
       }
@@ -52,34 +73,25 @@
         font-family: "Inter", sans-serif;
       }
 
-      .gradient-border {
-        position: relative;
-        background: linear-gradient(
-          45deg,
-          #ff007a,
-          #ff8c00,
-          #ffe600,
-          #b5ff00,
-          #00e934,
-          #00ffa8,
-          #ff00f2
-        );
-        padding: 3px;
-        border-radius: 20px;
-      }
-
-      .gradient-border-inner {
-        background: #000000;
-        border-radius: 17px;
-        padding: 2rem;
-      }
-
       .card-neon {
         transition: all 0.3s ease;
+        border: 4px solid;
       }
 
       .card-neon:hover {
         transform: translateY(-5px);
+      }
+
+      .nav-link:hover {
+        color: #ff007a !important;
+      }
+
+      .message-animation {
+        animation: slideUp 0.3s ease-out;
+      }
+
+      .typing-indicator {
+        animation: pulse 1.5s ease-in-out infinite;
       }
     </style>
     <style>
@@ -89,62 +101,203 @@
     </style>
     <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   </head>
-  <body class="h-full font-body overflow-auto" style="background: #000000">
+  <body class="h-full font-body overflow-auto" style="background: #ffffff">
     <div class="w-full h-full">
+      <!-- Navbar -->
+      <nav
+        class="fixed top-0 left-0 right-0 z-50 px-4 py-4"
+        style="
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          border-bottom: 2px solid #ff007a;
+        "
+      >
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+            <img
+              src="https://raw.githubusercontent.com/frontenddeveloper2025dev/delulufuturedevrotulosneon/refs/heads/main/logo%20delulu%20mex.png"
+              alt="Delulu Logo"
+              class="w-10 h-10 md:w-12 md:h-12 object-contain"
+              onerror="this.style.display='none';"
+            />
+            <span class="text-sm md:text-lg font-bold" style="color: #ff6b00"
+              >Delulu es de Solu 💅
+              <span style="color: #ff007a"
+                >| Dream it. Build it. Slay it.</span
+              ></span
+            >
+          </div>
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              href="#inicio"
+              class="nav-link text-lg font-semibold transition"
+              style="color: #333333"
+              >Inicio</a
+            >
+            <a
+              href="#quienes-somos"
+              class="nav-link text-lg font-semibold transition"
+              style="color: #333333"
+              >Quiénes Somos</a
+            >
+            <a
+              href="#vision"
+              class="nav-link text-lg font-semibold transition"
+              style="color: #333333"
+              >Visión</a
+            >
+            <a
+              href="#valores"
+              class="nav-link text-lg font-semibold transition"
+              style="color: #333333"
+              >Valores</a
+            >
+            <a
+              href="#servicios"
+              class="nav-link text-lg font-semibold transition"
+              style="color: #333333"
+              >Servicios</a
+            >
+            <a
+              href="#manifiesto"
+              class="nav-link text-lg font-semibold transition"
+              style="color: #333333"
+              >Manifiesto</a
+            >
+            <a
+              href="#galeria"
+              class="nav-link text-lg font-semibold transition"
+              style="color: #333333"
+              >Galería</a
+            >
+            <a
+              href="#contacto"
+              class="nav-link text-lg font-semibold transition"
+              style="color: #333333"
+              >Contacto</a
+            >
+          </div>
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden flex flex-col gap-1.5 p-2"
+            aria-label="Abrir menú"
+          >
+            <span
+              class="w-6 h-0.5 transition-all"
+              style="background: #ff007a"
+            ></span>
+            <span
+              class="w-6 h-0.5 transition-all"
+              style="background: #ff007a"
+            ></span>
+            <span
+              class="w-6 h-0.5 transition-all"
+              style="background: #ff007a"
+            ></span>
+          </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          class="md:hidden fixed inset-0 top-[72px] translate-x-full transition-transform duration-300"
+          style="
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+          "
+        >
+          <div class="flex flex-col items-center gap-6 pt-12">
+            <a
+              href="#inicio"
+              class="text-2xl font-bold hover:opacity-70 transition mobile-menu-link"
+              style="color: #ff007a"
+              >Inicio</a
+            >
+            <a
+              href="#quienes-somos"
+              class="text-2xl font-bold hover:opacity-70 transition mobile-menu-link"
+              style="color: #ff6b00"
+              >Quiénes Somos</a
+            >
+            <a
+              href="#vision"
+              class="text-2xl font-bold hover:opacity-70 transition mobile-menu-link"
+              style="color: #ffe600"
+              >Visión</a
+            >
+            <a
+              href="#valores"
+              class="text-2xl font-bold hover:opacity-70 transition mobile-menu-link"
+              style="color: #00e934"
+              >Valores</a
+            >
+            <a
+              href="#servicios"
+              class="text-2xl font-bold hover:opacity-70 transition mobile-menu-link"
+              style="color: #00ffa8"
+              >Servicios</a
+            >
+            <a
+              href="#manifiesto"
+              class="text-2xl font-bold hover:opacity-70 transition mobile-menu-link"
+              style="color: #ff00f2"
+              >Manifiesto</a
+            >
+            <a
+              href="#galeria"
+              class="text-2xl font-bold hover:opacity-70 transition mobile-menu-link"
+              style="color: #ffb6c1"
+              >Galería</a
+            >
+            <a
+              href="#contacto"
+              class="text-2xl font-bold hover:opacity-70 transition mobile-menu-link"
+              style="color: #540450"
+              >Contacto</a
+            >
+          </div>
+        </div>
+      </nav>
       <!-- Hero Section -->
       <section
-        class="relative min-h-screen flex items-center justify-center px-4 py-20"
-        style="background: linear-gradient(180deg, #000000 0%, #1a0033 100%)"
+        id="inicio"
+        class="relative min-h-screen flex flex-col items-center justify-center px-4 py-20 pt-32"
+        style="background: #ffffff"
       >
-        <!-- Decorative Elements -->
-        <div
-          class="absolute top-20 left-10 w-32 h-32 rounded-full float-animation"
-          style="
-            background: radial-gradient(circle, #ff007a 0%, transparent 70%);
-            opacity: 0.3;
-          "
-        ></div>
-        <div
-          class="absolute bottom-40 right-20 w-40 h-40 rounded-full float-animation"
-          style="
-            background: radial-gradient(circle, #00ffa8 0%, transparent 70%);
-            opacity: 0.3;
-            animation-delay: 1s;
-          "
-        ></div>
-        <div class="absolute top-1/2 left-1/4 text-8xl opacity-10 rotate-slow">
-          🪩
+        <!-- Logo centrado arriba -->
+        <div class="mb-8 relative z-20">
+          <img
+            src="https://raw.githubusercontent.com/frontenddeveloper2025dev/delulufuturedevrotulosneon/refs/heads/main/logo%20delulu%20mex.png"
+            alt="Delulu Future Dev Logo"
+            class="w-80 h-80 md:w-[32rem] md:h-[32rem] object-contain"
+            onerror="this.style.display='none'; this.alt='Logo';"
+          />
         </div>
         <div class="max-w-6xl mx-auto text-center relative z-10">
-          <h1
-            id="main-title"
-            class="font-display text-6xl md:text-8xl lg:text-9xl mb-6"
-            style="color: #ff007a; line-height: 1.1"
-          >
-            DELULU FUTURE DEV
-          </h1>
           <p
             id="tagline"
             class="text-3xl md:text-5xl font-bold mb-4"
-            style="color: #ffe600"
+            style="color: #ff6b00"
           >
             Delulu es de Solu 💅
           </p>
           <p
             id="subtitle"
             class="text-xl md:text-2xl mb-12"
-            style="color: #00ffa8"
+            style="color: #ff007a"
           >
             Dream it. Build it. Slay it.
           </p>
           <div class="flex flex-wrap justify-center gap-4 mb-12">
             <span
-              class="px-6 py-3 rounded-full text-black font-bold text-lg"
+              class="px-6 py-3 rounded-full text-white font-bold text-lg"
               style="background: #ff007a"
               >Diseño</span
             >
             <span
-              class="px-6 py-3 rounded-full text-black font-bold text-lg"
+              class="px-6 py-3 rounded-full text-white font-bold text-lg"
               style="background: #ff8c00"
               >Desarrollo</span
             >
@@ -167,40 +320,43 @@
         </div>
       </section>
       <!-- About Section -->
-      <section class="py-20 px-4" style="background: #000000">
+      <section
+        id="quienes-somos"
+        class="py-20 px-4"
+        style="background: #ff007a"
+      >
         <div class="max-w-6xl mx-auto">
           <h2
             id="about-title"
             class="font-display text-5xl md:text-6xl mb-12 text-center"
-            style="color: #ff8c00"
+            style="color: #ffffff"
           >
-            🌈 Quiénes somos
+            �� Quiénes somos
           </h2>
-          <div class="gradient-border mb-12">
-            <div class="gradient-border-inner">
-              <p
-                class="text-xl md:text-2xl leading-relaxed"
-                style="color: #ffffff"
-              >
-                Somos <strong style="color: #ff007a">Delulu Future Dev</strong>,
-                un estudio creativo-tech nacido del caos, la cultura pop y la
-                necesidad de crear cosas que realmente vibren. Nos movemos entre
-                el arte y el algoritmo, entre la intuición y el dato, entre el
-                meme y el método.
-              </p>
-            </div>
+          <div
+            class="p-8 rounded-3xl mb-12 border-4"
+            style="background: #ff007a; border-color: #ffffff"
+          >
+            <p
+              class="text-xl md:text-2xl leading-relaxed"
+              style="color: #ffffff"
+            >
+              Somos <strong style="color: #ffffff">Delulu Future Dev</strong>,
+              un estudio creativo-tech nacido del caos, la cultura pop y la
+              necesidad de crear cosas que realmente vibren. Nos movemos entre
+              el arte y el algoritmo, entre la intuición y el dato, entre el
+              meme y el método.
+            </p>
           </div>
           <div class="grid md:grid-cols-2 gap-8 mb-12">
             <div
               class="card-neon p-8 rounded-3xl"
-              style="
-                background: linear-gradient(135deg, #1a0033 0%, #000000 100%);
-              "
+              style="background: #ff007a; border-color: #ffffff"
             >
-              <h3 class="text-3xl font-bold mb-4" style="color: #ffe600">
+              <h3 class="text-3xl font-bold mb-4" style="color: #ffffff">
                 No somos una agencia
               </h3>
-              <p class="text-lg" style="color: #cccccc">
+              <p class="text-lg" style="color: #ffffff">
                 Somos un laboratorio de posibilidades donde diseñadores,
                 desarrolladores, estrategas, gamers, storytellers y creativxs
                 del futuro se juntan para hacer magia digital.
@@ -208,14 +364,12 @@
             </div>
             <div
               class="card-neon p-8 rounded-3xl"
-              style="
-                background: linear-gradient(135deg, #001a1a 0%, #000000 100%);
-              "
+              style="background: #ff007a; border-color: #ffffff"
             >
-              <h3 class="text-3xl font-bold mb-4" style="color: #00ffa8">
-                ✨ El futuro lo diseñamos
+              <h3 class="text-3xl font-bold mb-4" style="color: #ffffff">
+                🔮 El futuro lo diseñamos
               </h3>
-              <p class="text-lg" style="color: #cccccc">
+              <p class="text-lg" style="color: #ffffff">
                 Porque el futuro no lo predecimos, lo diseñamos en colaboración.
                 Aquí la creatividad es inclusiva, expansiva y sin gatekeeping.
               </p>
@@ -224,115 +378,113 @@
         </div>
       </section>
       <!-- Vision Section -->
-      <section
-        class="py-20 px-4"
-        style="background: linear-gradient(180deg, #000000 0%, #330019 100%)"
-      >
+      <section id="vision" class="py-20 px-4" style="background: #00e934">
         <div class="max-w-6xl mx-auto text-center">
           <h2
             class="font-display text-5xl md:text-6xl mb-8"
-            style="color: #ff00f2"
+            style="color: #540450"
           >
             💭 Nuestra visión
           </h2>
-          <p class="text-2xl md:text-3xl font-bold mb-6" style="color: #ffffff">
+          <p class="text-2xl md:text-3xl font-bold mb-6" style="color: #540450">
             Crear futuro con propósito, código y glitter.
           </p>
-          <div class="gradient-border max-w-4xl mx-auto">
-            <div class="gradient-border-inner">
-              <p class="text-xl leading-relaxed" style="color: #cccccc">
-                Ser una comunidad creativa global donde la imaginación, la
-                tecnología y la empatía se fusionan para construir un futuro más
-                bello, más accesible y más humano. Queremos un mundo donde las
-                ideas delulu se vuelvan solu, donde soñar no sea ridículo, sino
-                revolucionario.
-              </p>
-            </div>
+          <div
+            class="p-8 rounded-3xl border-4 max-w-4xl mx-auto"
+            style="background: #00e934; border-color: #540450"
+          >
+            <p class="text-xl leading-relaxed" style="color: #540450">
+              Ser una comunidad creativa global donde la imaginación, la
+              tecnología y la empatía se fusionan para construir un futuro más
+              bello, más accesible y más humano. Queremos un mundo donde las
+              ideas delulu se vuelvan solu, donde soñar no sea ridículo, sino
+              revolucionario.
+            </p>
           </div>
         </div>
       </section>
       <!-- Values Section -->
-      <section class="py-20 px-4" style="background: #000000">
+      <section id="valores" class="py-20 px-4" style="background: #ffe600">
         <div class="max-w-6xl mx-auto">
           <h2
             class="font-display text-5xl md:text-6xl mb-16 text-center"
-            style="color: #b5ff00"
+            style="color: #540450"
           >
             💫 Nuestros valores
           </h2>
           <div class="grid md:grid-cols-3 gap-8">
             <div
               class="card-neon p-8 rounded-3xl text-center"
-              style="background: #0a0a0a"
+              style="background: #ffffff; border-color: #ffffff"
             >
               <div class="text-6xl mb-4">🌍</div>
               <h3 class="text-2xl font-bold mb-4" style="color: #ff007a">
                 Inclusividad radical
               </h3>
-              <p class="text-lg" style="color: #cccccc">
+              <p class="text-lg" style="color: #333333">
                 Aquí todxs caben. Celebramos lo diverso porque es lo que hace al
                 internet más interesante.
               </p>
             </div>
             <div
               class="card-neon p-8 rounded-3xl text-center"
-              style="background: #0a0a0a"
+              style="background: #ffffff; border-color: #ffffff"
             >
-              <div class="text-6xl mb-4">�����️</div>
+              <div class="text-6xl mb-4">🎨</div>
               <h3 class="text-2xl font-bold mb-4" style="color: #ff8c00">
                 Creatividad sin fronteras
               </h3>
-              <p class="text-lg" style="color: #cccccc">
+              <p class="text-lg" style="color: #333333">
                 No creemos en cajas, creemos en conexiones. Multidisciplinario o
                 nada.
               </p>
             </div>
             <div
               class="card-neon p-8 rounded-3xl text-center"
-              style="background: #0a0a0a"
+              style="background: #ffffff; border-color: #ffffff"
             >
               <div class="text-6xl mb-4">💡</div>
-              <h3 class="text-2xl font-bold mb-4" style="color: #ffe600">
+              <h3 class="text-2xl font-bold mb-4" style="color: #b5ff00">
                 Tecnología con alma
               </h3>
-              <p class="text-lg" style="color: #cccccc">
+              <p class="text-lg" style="color: #333333">
                 El código también puede tener emoción. Lo tech no tiene que ser
                 frío.
               </p>
             </div>
             <div
               class="card-neon p-8 rounded-3xl text-center"
-              style="background: #0a0a0a"
+              style="background: #ffffff; border-color: #ffffff"
             >
               <div class="text-6xl mb-4">🔮</div>
-              <h3 class="text-2xl font-bold mb-4" style="color: #b5ff00">
+              <h3 class="text-2xl font-bold mb-4" style="color: #00e934">
                 Cultura + Estrategia
               </h3>
-              <p class="text-lg" style="color: #cccccc">
+              <p class="text-lg" style="color: #333333">
                 No somos parte del ruido, somos la frecuencia.
               </p>
             </div>
             <div
               class="card-neon p-8 rounded-3xl text-center"
-              style="background: #0a0a0a"
+              style="background: #ffffff; border-color: #ffffff"
             >
               <div class="text-6xl mb-4">🫶</div>
-              <h3 class="text-2xl font-bold mb-4" style="color: #00e934">
+              <h3 class="text-2xl font-bold mb-4" style="color: #00ffa8">
                 Colaboración y comunidad
               </h3>
-              <p class="text-lg" style="color: #cccccc">
+              <p class="text-lg" style="color: #333333">
                 El ego no innova, las comunidades sí.
               </p>
             </div>
             <div
               class="card-neon p-8 rounded-3xl text-center"
-              style="background: #0a0a0a"
+              style="background: #ffffff; border-color: #ffffff"
             >
-              <div class="text-6xl mb-4">⚡</div>
-              <h3 class="text-2xl font-bold mb-4" style="color: #00ffa8">
+              <div class="text-6xl mb-4">🌟</div>
+              <h3 class="text-2xl font-bold mb-4" style="color: #ff00f2">
                 Impacto real
               </h3>
-              <p class="text-lg" style="color: #cccccc">
+              <p class="text-lg" style="color: #333333">
                 Compartir conocimiento es el nuevo liderazgo.
               </p>
             </div>
@@ -340,149 +492,646 @@
         </div>
       </section>
       <!-- Services Section -->
-      <section
-        class="py-20 px-4"
-        style="background: linear-gradient(180deg, #000000 0%, #001a33 100%)"
-      >
+      <section id="servicios" class="py-20 px-4" style="background: #b5ff00">
         <div class="max-w-6xl mx-auto">
           <h2
             class="font-display text-5xl md:text-6xl mb-16 text-center"
-            style="color: #00ffa8"
+            style="color: #ff00f2"
           >
             ⚡ Qué hacemos
           </h2>
           <div class="grid md:grid-cols-2 gap-8">
-            <div class="gradient-border">
-              <div class="gradient-border-inner">
-                <h3 class="text-3xl font-bold mb-4" style="color: #ff007a">
-                  🖥️ Apps &amp; Sites que slayean
-                </h3>
-                <p class="text-lg" style="color: #cccccc">
-                  Desarrollamos experiencias digitales tan fluidas que hacen
-                  match con tu propósito y tu público.
-                </p>
-              </div>
+            <div
+              class="p-8 rounded-3xl border-4"
+              style="background: #ffffff; border-color: #ffffff"
+            >
+              <h3 class="text-3xl font-bold mb-4" style="color: #ff007a">
+                🖥️ Apps &amp; Sites que slayean
+              </h3>
+              <p class="text-lg" style="color: #333333">
+                Desarrollamos experiencias digitales tan fluidas que hacen match
+                con tu propósito y tu público.
+              </p>
             </div>
-            <div class="gradient-border">
-              <div class="gradient-border-inner">
-                <h3 class="text-3xl font-bold mb-4" style="color: #ff8c00">
-                  🔮 Tendencias que se convierten en ventaja
-                </h3>
-                <p class="text-lg" style="color: #cccccc">
-                  Coolhunting, análisis y cultura pop mezclados con data.
-                  Detectamos lo que vibra antes de que explote.
-                </p>
-              </div>
+            <div
+              class="p-8 rounded-3xl border-4"
+              style="background: #ffffff; border-color: #ffffff"
+            >
+              <h3 class="text-3xl font-bold mb-4" style="color: #ff8c00">
+                🔮 Tendencias que se convierten en ventaja
+              </h3>
+              <p class="text-lg" style="color: #333333">
+                Coolhunting, análisis y cultura pop mezclados con data.
+                Detectamos lo que vibra antes de que explote.
+              </p>
             </div>
-            <div class="gradient-border">
-              <div class="gradient-border-inner">
-                <h3 class="text-3xl font-bold mb-4" style="color: #ffe600">
-                  🎨 Identidad de marca con vibe
-                </h3>
-                <p class="text-lg" style="color: #cccccc">
-                  Creamos tu voz, look y energía. Tu marca, pero en su versión
-                  más icónica.
-                </p>
-              </div>
+            <div
+              class="p-8 rounded-3xl border-4"
+              style="background: #ffffff; border-color: #ffffff"
+            >
+              <h3 class="text-3xl font-bold mb-4" style="color: #b5ff00">
+                🎨 Identidad de marca con vibe
+              </h3>
+              <p class="text-lg" style="color: #333333">
+                Creamos tu voz, look y energía. Tu marca, pero en su versión más
+                icónica.
+              </p>
             </div>
-            <div class="gradient-border">
-              <div class="gradient-border-inner">
-                <h3 class="text-3xl font-bold mb-4" style="color: #b5ff00">
-                  �� Contenido que se siente
-                </h3>
-                <p class="text-lg" style="color: #cccccc">
-                  Fotos, diseño, copy, storytelling y estética emocional.
-                  Conexión &gt; atención.
-                </p>
-              </div>
+            <div
+              class="p-8 rounded-3xl border-4"
+              style="background: #ffffff; border-color: #ffffff"
+            >
+              <h3 class="text-3xl font-bold mb-4" style="color: #00e934">
+                💅 Contenido que se siente
+              </h3>
+              <p class="text-lg" style="color: #333333">
+                Fotos, diseño, copy, storytelling y estética emocional. Conexión
+                &gt; atención.
+              </p>
             </div>
-            <div class="gradient-border">
-              <div class="gradient-border-inner">
-                <h3 class="text-3xl font-bold mb-4" style="color: #00e934">
-                  🤝 Comunidades digitales con alma
-                </h3>
-                <p class="text-lg" style="color: #cccccc">
-                  Estrategias para crear fandoms reales, no followers vacíos.
-                </p>
-              </div>
+            <div
+              class="p-8 rounded-3xl border-4"
+              style="background: #ffffff; border-color: #ffffff"
+            >
+              <h3 class="text-3xl font-bold mb-4" style="color: #00ffa8">
+                🤝 Comunidades digitales con alma
+              </h3>
+              <p class="text-lg" style="color: #333333">
+                Estrategias para crear fandoms reales, no followers vacíos.
+              </p>
             </div>
-            <div class="gradient-border">
-              <div class="gradient-border-inner">
-                <h3 class="text-3xl font-bold mb-4" style="color: #00ffa8">
-                  📰 Editorial &amp; Tendencias
-                </h3>
-                <p class="text-lg" style="color: #cccccc">
-                  Revista y radar digital sobre lo que vibra en diseño, cultura
-                  y tecnología.
-                </p>
-              </div>
+            <div
+              class="p-8 rounded-3xl border-4"
+              style="background: #ffffff; border-color: #ffffff"
+            >
+              <h3 class="text-3xl font-bold mb-4" style="color: #ff00f2">
+                📰 Editorial &amp; Tendencias
+              </h3>
+              <p class="text-lg" style="color: #333333">
+                Revista y radar digital sobre lo que vibra en diseño, cultura y
+                tecnología.
+              </p>
             </div>
           </div>
         </div>
       </section>
       <!-- Manifesto Section -->
-      <section
-        class="py-20 px-4"
-        style="background: linear-gradient(180deg, #001a33 0%, #1a0033 100%)"
-      >
+      <section id="manifiesto" class="py-20 px-4" style="background: #00e934">
         <div class="max-w-4xl mx-auto text-center">
           <h2
             id="manifesto-title"
             class="font-display text-5xl md:text-6xl mb-12"
-            style="color: #ff00f2"
+            style="color: #470665"
           >
             ✨ Manifiesto Delulu
           </h2>
-          <div
-            class="space-y-6 text-xl md:text-2xl leading-relaxed"
-            style="color: #ffffff"
-          >
-            <p>
+          <div class="space-y-6 text-xl md:text-2xl leading-relaxed">
+            <p style="color: #470665">
               💭 Creemos que imaginar sin miedo es el primer paso para cambiar
               el mundo.
             </p>
-            <p>👾 Que la tecnología puede ser inclusiva, bella y humana.</p>
-            <p>
+            <p style="color: #470665">
+              👾 Que la tecnología puede ser inclusiva, bella y humana.
+            </p>
+            <p style="color: #470665">
               🎨 Que el diseño no solo comunica, sino cura, inspira y conecta.
             </p>
-            <p>🌐 Que el futuro no es un destino, es un diseño colaborativo.</p>
+            <p style="color: #470665">
+              🌐 Que el futuro no es un destino, es un diseño colaborativo.
+            </p>
             <p
               class="text-3xl md:text-4xl font-bold mt-8"
-              style="color: #ffe600"
+              style="color: #470665"
             >
               Y sí: somos delulu. Pero también somos solu.
             </p>
-            <p class="text-2xl" style="color: #00ffa8">
+            <p class="text-2xl" style="color: #470665">
               Porque los sueños sin estrategia son fantasía,<br />
               y las estrategias sin sueños son aburridas.
             </p>
-            <p class="font-display text-4xl mt-12" style="color: #ff007a">
+            <p class="font-display text-4xl mt-12" style="color: #470665">
               🚀 We dream in pixels. We build with purpose
             </p>
+          </div>
+        </div>
+      </section>
+      <!-- Services Board Section -->
+      <section id="galeria" class="py-20 px-4" style="background: #ff6b00">
+        <div class="max-w-6xl mx-auto">
+          <h2
+            class="font-display text-5xl md:text-6xl mb-8 text-center"
+            style="color: #ffffff"
+          >
+            ✨ Nuestros Servicios
+          </h2>
+          <p class="text-xl text-center mb-16" style="color: #ffffff">
+            Haz clic en cada categoría para explorar
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Branding -->
+            <button
+              class="service-card group relative overflow-hidden rounded-3xl border-4 p-0 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              style="
+                border-color: #ffffff;
+                background: url('https://raw.githubusercontent.com/frontenddeveloper2025dev/delulufuturedevrotulosneon/refs/heads/main/rectangulos%20(1).jpg')
+                  center/cover;
+              "
+            >
+              <div
+                class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300"
+              ></div>
+              <div
+                class="relative z-10 p-8 h-64 flex flex-col items-center justify-center text-center"
+              >
+                <div
+                  class="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300"
+                >
+                  🎨
+                </div>
+                <h3 class="text-3xl font-bold mb-2" style="color: #ffffff">
+                  Branding
+                </h3>
+                <p
+                  class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style="color: #ffffff"
+                >
+                  Identidad visual que marca tendencia
+                </p>
+              </div>
+            </button>
+            <!-- Apps & Sites -->
+            <button
+              class="service-card group relative overflow-hidden rounded-3xl border-4 p-0 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              style="
+                border-color: #ffffff;
+                background: url('https://raw.githubusercontent.com/frontenddeveloper2025dev/delulufuturedevrotulosneon/refs/heads/main/rectangulos%20(2).jpg')
+                  center/cover;
+              "
+            >
+              <div
+                class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300"
+              ></div>
+              <div
+                class="relative z-10 p-8 h-64 flex flex-col items-center justify-center text-center"
+              >
+                <div
+                  class="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300"
+                >
+                  🖥️
+                </div>
+                <h3 class="text-3xl font-bold mb-2" style="color: #ffffff">
+                  Apps &amp; Sites
+                </h3>
+                <p
+                  class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style="color: #ffffff"
+                >
+                  Experiencias digitales que slayean
+                </p>
+              </div>
+            </button>
+            <!-- UX-UI -->
+            <button
+              class="service-card group relative overflow-hidden rounded-3xl border-4 p-0 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              style="
+                border-color: #ffffff;
+                background: url('https://raw.githubusercontent.com/frontenddeveloper2025dev/delulufuturedevrotulosneon/refs/heads/main/rectangulos%20(3).jpg')
+                  center/cover;
+              "
+            >
+              <div
+                class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300"
+              ></div>
+              <div
+                class="relative z-10 p-8 h-64 flex flex-col items-center justify-center text-center"
+              >
+                <div
+                  class="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300"
+                >
+                  ✨
+                </div>
+                <h3 class="text-3xl font-bold mb-2" style="color: #ffffff">
+                  UX-UI
+                </h3>
+                <p
+                  class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style="color: #ffffff"
+                >
+                  Diseño centrado en la experiencia
+                </p>
+              </div>
+            </button>
+            <!-- Social Media -->
+            <button
+              class="service-card group relative overflow-hidden rounded-3xl border-4 p-0 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              style="
+                border-color: #ffffff;
+                background: url('https://raw.githubusercontent.com/frontenddeveloper2025dev/delulufuturedevrotulosneon/refs/heads/main/rectangulos%20(4).jpg')
+                  center/cover;
+              "
+            >
+              <div
+                class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300"
+              ></div>
+              <div
+                class="relative z-10 p-8 h-64 flex flex-col items-center justify-center text-center"
+              >
+                <div
+                  class="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300"
+                >
+                  📱
+                </div>
+                <h3 class="text-3xl font-bold mb-2" style="color: #ffffff">
+                  Social Media
+                </h3>
+                <p
+                  class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style="color: #ffffff"
+                >
+                  Contenido que conecta y viraliza
+                </p>
+              </div>
+            </button>
+            <!-- Storytelling -->
+            <button
+              class="service-card group relative overflow-hidden rounded-3xl border-4 p-0 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              style="
+                border-color: #ffffff;
+                background: url('https://raw.githubusercontent.com/frontenddeveloper2025dev/delulufuturedevrotulosneon/refs/heads/main/rectangulos%20(6).jpg')
+                  center/cover;
+              "
+            >
+              <div
+                class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300"
+              ></div>
+              <div
+                class="relative z-10 p-8 h-64 flex flex-col items-center justify-center text-center"
+              >
+                <div
+                  class="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300"
+                >
+                  📖
+                </div>
+                <h3 class="text-3xl font-bold mb-2" style="color: #ffffff">
+                  Storytelling
+                </h3>
+                <p
+                  class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style="color: #ffffff"
+                >
+                  Narrativas que inspiran y transforman
+                </p>
+              </div>
+            </button>
+            <!-- Strategy (6th service - IA image) -->
+            <button
+              class="service-card group relative overflow-hidden rounded-3xl border-4 p-0 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              style="
+                border-color: #ffffff;
+                background: url('https://raw.githubusercontent.com/frontenddeveloper2025dev/delulufuturedevrotulosneon/refs/heads/main/ia.png')
+                  center/cover;
+              "
+            >
+              <div
+                class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300"
+              ></div>
+              <div
+                class="relative z-10 p-8 h-64 flex flex-col items-center justify-center text-center"
+              >
+                <div
+                  class="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300"
+                >
+                  🔮
+                </div>
+                <h3 class="text-3xl font-bold mb-2" style="color: #ffffff">
+                  Strategy
+                </h3>
+                <p
+                  class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style="color: #ffffff"
+                >
+                  Estrategias que convierten sueños en realidad
+                </p>
+              </div>
+            </button>
+          </div>
+          <!-- Service Detail Modal -->
+          <div
+            id="service-modal"
+            class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300"
+            style="background: rgba(0, 0, 0, 0.8)"
+          >
+            <div
+              class="max-w-2xl w-full rounded-3xl p-8 relative transform scale-90 transition-transform duration-300"
+              style="background: #ffffff"
+            >
+              <button
+                id="close-modal"
+                class="absolute top-4 right-4 text-4xl hover:opacity-70 transition"
+                style="color: #ff007a"
+              >
+                ×
+              </button>
+              <div id="modal-content" class="text-center">
+                <div id="modal-icon" class="text-7xl mb-4"></div>
+                <h3
+                  id="modal-title"
+                  class="text-4xl font-bold mb-4"
+                  style="color: #ff007a"
+                ></h3>
+                <p
+                  id="modal-description"
+                  class="text-xl mb-6"
+                  style="color: #333333"
+                ></p>
+                <div
+                  id="modal-details"
+                  class="text-left space-y-4"
+                  style="color: #333333"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact Section -->
+      <section id="contacto" class="py-20 px-4" style="background: #540450">
+        <div class="max-w-6xl mx-auto">
+          <h2
+            class="font-display text-5xl md:text-6xl mb-12 text-center"
+            style="color: #ffffff"
+          >
+            📬 Contacto
+          </h2>
+          <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <!-- Información de Contacto -->
+            <div class="space-y-6">
+              <div
+                class="p-6 rounded-3xl"
+                style="
+                  background: rgba(255, 255, 255, 0.15);
+                  backdrop-filter: blur(10px);
+                "
+              >
+                <div class="flex items-start gap-4">
+                  <span class="text-4xl">🌐</span>
+                  <div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #ffffff">
+                      Sitio Web
+                    </h3>
+                    <a
+                      href="https://delulufuture.dev"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-lg hover:opacity-70 transition"
+                      style="color: #ffffff"
+                      >delulufuture.dev</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="p-6 rounded-3xl"
+                style="
+                  background: rgba(255, 255, 255, 0.15);
+                  backdrop-filter: blur(10px);
+                "
+              >
+                <div class="flex items-start gap-4">
+                  <span class="text-4xl">📧</span>
+                  <div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #ffffff">
+                      Email
+                    </h3>
+                    <a
+                      href="mailto:indigolilobarcena@delulufuture.dev"
+                      class="text-lg hover:opacity-70 transition break-all"
+                      style="color: #ffffff"
+                      >indigolilobarcena@delulufuture.dev</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="p-6 rounded-3xl"
+                style="
+                  background: rgba(255, 255, 255, 0.15);
+                  backdrop-filter: blur(10px);
+                "
+              >
+                <div class="flex items-start gap-4">
+                  <span class="text-4xl">📍</span>
+                  <div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #ffffff">
+                      Dirección
+                    </h3>
+                    <p class="text-lg" style="color: #ffffff">
+                      Toltecas 166<br />
+                      San Pedro de los Pinos<br />
+                      01180
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Redes Sociales -->
+            <div>
+              <h3
+                class="text-2xl font-bold mb-6 text-center"
+                style="color: #ffffff"
+              >
+                ✨ Síguenos
+              </h3>
+              <div class="grid grid-cols-2 gap-4">
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="p-5 rounded-3xl text-center hover:scale-105 transition-transform"
+                  style="
+                    background: rgba(255, 255, 255, 0.2);
+                    backdrop-filter: blur(10px);
+                  "
+                >
+                  <div class="text-4xl mb-2">👍</div>
+                  <p class="text-lg font-bold" style="color: #ffffff">
+                    Facebook
+                  </p></a
+                >
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="p-5 rounded-3xl text-center hover:scale-105 transition-transform"
+                  style="
+                    background: rgba(255, 255, 255, 0.2);
+                    backdrop-filter: blur(10px);
+                  "
+                >
+                  <div class="text-4xl mb-2">📸</div>
+                  <p class="text-lg font-bold" style="color: #ffffff">
+                    Instagram
+                  </p></a
+                >
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="p-5 rounded-3xl text-center hover:scale-105 transition-transform"
+                  style="
+                    background: rgba(255, 255, 255, 0.2);
+                    backdrop-filter: blur(10px);
+                  "
+                >
+                  <div class="text-4xl mb-2">🎵</div>
+                  <p class="text-lg font-bold" style="color: #ffffff">
+                    TikTok
+                  </p></a
+                >
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="p-5 rounded-3xl text-center hover:scale-105 transition-transform"
+                  style="
+                    background: rgba(255, 255, 255, 0.2);
+                    backdrop-filter: blur(10px);
+                  "
+                >
+                  <div class="text-4xl mb-2">💻</div>
+                  <p class="text-lg font-bold" style="color: #ffffff">
+                    GitHub
+                  </p></a
+                >
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="p-5 rounded-3xl text-center hover:scale-105 transition-transform col-span-2"
+                  style="
+                    background: rgba(255, 255, 255, 0.2);
+                    backdrop-filter: blur(10px);
+                  "
+                >
+                  <div class="text-4xl mb-2">📌</div>
+                  <p class="text-lg font-bold" style="color: #ffffff">
+                    Pinterest
+                  </p></a
+                >
+              </div>
+            </div>
           </div>
         </div>
       </section>
       <!-- Footer -->
       <footer
         class="py-12 px-4 text-center"
-        style="background: #000000; border-top: 2px solid #ff007a"
+        style="background: #f9095c; border-top: 3px solid #ff007a"
       >
         <div class="max-w-6xl mx-auto">
-          <p class="text-2xl font-display mb-4" style="color: #ff007a">
+          <p class="text-2xl font-display mb-4" style="color: #ffffff">
             DELULU FUTURE DEV 🪩
           </p>
-          <p class="text-lg" style="color: #cccccc">Delulu es de Solu 💅</p>
+          <p class="text-lg" style="color: #ffffff">Delulu es de Solu 💅</p>
         </div>
       </footer>
+      <!-- Floating Chat Button -->
+      <button
+        id="chat-toggle"
+        class="fixed bottom-6 right-6 w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl transition-all hover:scale-110 z-50"
+        style="background: linear-gradient(135deg, #ff007a, #ff00f2)"
+      >
+        🤖
+      </button>
+      <!-- Floating Chat Window -->
+      <div
+        id="chat-window"
+        class="fixed bottom-24 right-6 w-96 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 z-50 opacity-0 pointer-events-none translate-y-4"
+        style="
+          border: 3px solid #ff007a;
+          background: #1a1a1a;
+          max-height: 600px;
+        "
+      >
+        <!-- Chat Header -->
+        <div
+          class="px-4 py-3 border-b flex items-center justify-between"
+          style="background: #2a2a2a; border-color: #ff007a"
+        >
+          <div class="flex items-center gap-2">
+            <div
+              class="w-10 h-10 rounded-full flex items-center justify-center text-xl"
+              style="background: linear-gradient(135deg, #ff007a, #ff00f2)"
+            >
+              🤖
+            </div>
+            <div>
+              <h4 class="text-sm font-bold" style="color: #ffffff">
+                Delulu Bot
+              </h4>
+              <p class="text-xs" style="color: #00ffa8">● En línea</p>
+            </div>
+          </div>
+          <button
+            id="chat-close"
+            class="text-2xl hover:opacity-70 transition"
+            style="color: #ffffff"
+          >
+            ×
+          </button>
+        </div>
+        <!-- Chat Messages -->
+        <div
+          id="chat-messages"
+          class="h-80 overflow-y-auto px-4 py-3 space-y-3"
+          style="background: #1a1a1a"
+        >
+          <!-- Messages will be added here by JS -->
+        </div>
+        <!-- Quick Replies -->
+        <div
+          class="px-4 py-2 border-t"
+          style="background: #2a2a2a; border-color: #333333"
+        >
+          <div id="quick-replies" class="flex flex-wrap gap-1.5">
+            <!-- Quick reply buttons will be added by JS -->
+          </div>
+        </div>
+        <!-- Chat Input -->
+        <div
+          class="px-4 py-3 border-t"
+          style="background: #2a2a2a; border-color: #333333"
+        >
+          <form id="chat-form" class="flex gap-2">
+            <input
+              type="text"
+              id="user-input"
+              placeholder="Escribe aquí..."
+              class="flex-1 px-3 py-2 rounded-full outline-none text-white placeholder-gray-500 text-sm"
+              style="background: #1a1a1a; border: 2px solid #ff007a"
+              autocomplete="off"
+            />
+            <button
+              type="submit"
+              class="px-4 py-2 rounded-full font-bold text-sm transition-all hover:scale-105"
+              style="
+                background: linear-gradient(135deg, #ff007a, #ff00f2);
+                color: #ffffff;
+              "
+            >
+              ➤
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
     <script>
       const defaultConfig = {
-        main_title: "DELULU FUTURE DEV",
         tagline: "Delulu es de Solu 💅",
         subtitle: "Dream it. Build it. Slay it.",
         about_title: "🌈 Quiénes somos",
         manifesto_title: "✨ Manifiesto Delulu",
-        background_color: "#000000",
+        background_color: "#FFFFFF",
         primary_neon: "#FF007A",
         secondary_neon: "#FFE600",
         tertiary_neon: "#00FFA8",
@@ -491,15 +1140,405 @@
         font_size: 16,
       };
 
+      // Bot knowledge base
+      const botKnowledge = {
+        servicios: {
+          keywords: [
+            "servicios",
+            "qué hacen",
+            "que hacen",
+            "ofrecen",
+            "trabajan",
+            "hacer",
+            "todos",
+          ],
+          response: `✨ ¡Ofrecemos 6 servicios que slayean!
+
+🖥️ **1. Apps & Sites que slayean**
+UX con alma, UI con glitter, y resultados con impacto.
+
+🔮 **2. Tendencias que se convierten en ventaja**
+Coolhunting y data. Detectamos lo que vibra antes de que explote.
+
+🎨 **3. Identidad de marca con vibe**
+Tu main character identity. Tu marca en su versión más icónica.
+
+💅 **4. Contenido que se siente**
+Fotos, diseño, copy y storytelling. Conexión > atención.
+
+🤝 **5. Comunidades digitales con alma**
+Creamos fandoms reales, no followers vacíos.
+
+📰 **6. Editorial & Tendencias**
+Revista digital sobre diseño, cultura y tech.
+
+¿Quieres saber más de alguno? 💫`,
+        },
+
+        apps: {
+          keywords: [
+            "apps",
+            "aplicaciones",
+            "web",
+            "sitios",
+            "websites",
+            "desarrollo",
+            "sites",
+            "digital",
+          ],
+          response: `🖥️ **1. Apps & Sites que slayean**
+
+Desarrollamos experiencias digitales tan fluidas que hacen match con tu propósito y tu público.
+
+✨ UX con alma
+💫 UI con glitter  
+📈 Resultados con impacto
+
+Todo responsive, todo funcional, todo hermoso.
+
+¿Tienes un proyecto en mente? 💭`,
+        },
+
+        tendencias: {
+          keywords: [
+            "tendencias",
+            "coolhunting",
+            "análisis",
+            "analisis",
+            "cultura",
+            "pionero",
+            "ventaja",
+          ],
+          response: `🔮 **2. Tendencias que se convierten en ventaja**
+
+Coolhunting, análisis y cultura pop mezclados con data.
+
+🎯 Detectamos lo que vibra antes de que explote
+📊 Análisis estratégico de tendencias
+🌊 Convertimos el futuro en ventaja
+
+Ser pionero no es suerte: es tener visión con flow. 🚀`,
+        },
+
+        branding: {
+          keywords: [
+            "branding",
+            "marca",
+            "identidad",
+            "logo",
+            "diseño",
+            "diseno",
+            "vibe",
+            "visual",
+          ],
+          response: `🎨 **3. Identidad de marca con vibe**
+
+Creamos tu voz, look y energía.
+
+✨ No solo branding: una **main character identity**
+💅 Tu marca en su versión más icónica
+🎯 No solo se ve, se siente
+
+¿Lista tu marca para su glow up? 💫`,
+        },
+
+        contenido: {
+          keywords: [
+            "contenido",
+            "fotos",
+            "copy",
+            "storytelling",
+            "redes",
+            "social",
+            "siente",
+          ],
+          response: `💅 **4. Contenido que se siente, no solo se ve**
+
+Fotos, diseño, copy, storytelling y estética emocional.
+
+📸 Contenido visual con propósito
+✍️ Copy que conecta
+🎬 Storytelling que inspira
+💖 Estética emocional
+
+**Conexión > atención**
+
+¿Listo para contenido que impacte? ✨`,
+        },
+
+        comunidad: {
+          keywords: [
+            "comunidad",
+            "comunidades",
+            "fandoms",
+            "followers",
+            "engagement",
+            "audiencia",
+            "alma",
+          ],
+          response: `🤝 **5. Comunidades digitales con alma**
+
+Estrategias para crear fandoms reales, no followers vacíos.
+
+💬 Engagement auténtico
+🫶 Relaciones que perduran
+🌟 Comunidades con alma
+
+**Likes vienen y van. Las relaciones se construyen.**
+
+¿Quieres construir algo real? 💫`,
+        },
+
+        editorial: {
+          keywords: ["editorial", "revista", "blog", "publicaciones", "radar"],
+          response: `📰 **6. Editorial & Tendencias**
+
+Revista y radar digital sobre lo que vibra en diseño, cultura y tecnología.
+
+📝 Artículos inspiradores
+📊 Análisis de tendencias
+🎨 Showcases de proyectos
+💡 Insights de la industria
+
+**Inspiración que informa. Estrategia que transforma.** ✨`,
+        },
+
+        manifiesto: {
+          keywords: [
+            "manifiesto",
+            "filosofía",
+            "filosofia",
+            "valores",
+            "misión",
+            "mision",
+            "creemos",
+            "delulu",
+            "solu",
+          ],
+          response: `✨ **Manifiesto Delulu**
+
+💭 Creemos que **imaginar sin miedo** es el primer paso para cambiar el mundo.
+
+👾 Que la tecnología puede ser **inclusiva, bella y humana**.
+
+🎨 Que el diseño no solo comunica, sino **cura, inspira y conecta**.
+
+��� Que el futuro no es un destino, es un **diseño colaborativo**.
+
+Y sí: somos delulu. Pero también somos solu.
+
+Porque los sueños sin estrategia son fantasía, y las estrategias sin sueños son aburridas.
+
+🚀 **We dream in pixels. We build with purpose. We slay with love.**
+
+¿Te identificas? 💜`,
+        },
+
+        contacto: {
+          keywords: [
+            "contacto",
+            "contactar",
+            "email",
+            "correo",
+            "hablar",
+            "cotizar",
+            "precio",
+          ],
+          response: `📬 **¡Conectemos!**
+
+¿Listo para hacer algo increíble juntos?
+
+📧 **Email:** indigolilobarcena@delulufuture.dev
+🌐 **Web:** delulufuture.dev
+📍 **Ubicación:** Toltecas 166, San Pedro de los Pinos, CDMX
+
+Respuestas en menos de 24 horas. 💅
+
+¿Te gustaría agendar una consulta? 🗓️`,
+        },
+
+        saludo: {
+          keywords: [
+            "hola",
+            "hey",
+            "hi",
+            "buenas",
+            "buenos días",
+            "buenas tardes",
+            "buenas noches",
+            "saludos",
+          ],
+          response: `¡Hola! 👋✨ 
+
+Qué gusto verte por aquí. Soy tu guía en el mundo Delulu Future Dev.
+
+¿En qué puedo ayudarte? Pregúntame sobre servicios, manifiesto, o lo que necesites. 💫`,
+        },
+      };
+
+      const quickReplies = [
+        { text: "🖥️ Apps & Sites", trigger: "apps" },
+        { text: "🎨 Branding", trigger: "branding" },
+        { text: "💅 Contenido", trigger: "contenido" },
+        { text: "✨ Manifiesto", trigger: "manifiesto" },
+        { text: "📬 Contacto", trigger: "contacto" },
+        { text: "��� Todos los servicios", trigger: "servicios" },
+      ];
+
+      // Initialize chat
+      function initChat() {
+        addBotMessage(
+          "¡Hola! 👋✨ Soy el Delulu Bot. Puedo ayudarte con info sobre nuestros servicios, manifiesto y más. ¿Qué te gustaría saber?"
+        );
+        renderQuickReplies();
+      }
+
+      // Add bot message
+      function addBotMessage(text) {
+        const messagesContainer = document.getElementById("chat-messages");
+        const messageDiv = document.createElement("div");
+        messageDiv.className = "flex gap-3 message-animation";
+        messageDiv.innerHTML = `
+        <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-xl" style="background: linear-gradient(135deg, #FF007A, #FF00F2);">
+          🤖
+        </div>
+        <div class="flex-1">
+          <div class="inline-block px-4 py-3 rounded-2xl rounded-tl-sm max-w-lg" style="background: #2a2a2a; color: #FFFFFF;">
+            <p class="whitespace-pre-line text-sm">${text}</p>
+          </div>
+        </div>
+      `;
+        messagesContainer.appendChild(messageDiv);
+        scrollToBottom();
+      }
+
+      // Add user message
+      function addUserMessage(text) {
+        const messagesContainer = document.getElementById("chat-messages");
+        const messageDiv = document.createElement("div");
+        messageDiv.className = "flex gap-3 justify-end message-animation";
+        messageDiv.innerHTML = `
+        <div class="flex-1 flex justify-end">
+          <div class="inline-block px-4 py-3 rounded-2xl rounded-tr-sm max-w-lg" style="background: linear-gradient(135deg, #FF007A, #FF00F2); color: #FFFFFF;">
+            <p class="text-sm">${text}</p>
+          </div>
+        </div>
+        <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-xl" style="background: linear-gradient(135deg, #00E934, #00FFA8);">
+          😊
+        </div>
+      `;
+        messagesContainer.appendChild(messageDiv);
+        scrollToBottom();
+      }
+
+      // Show typing indicator
+      function showTyping() {
+        const messagesContainer = document.getElementById("chat-messages");
+        const typingDiv = document.createElement("div");
+        typingDiv.id = "typing-indicator";
+        typingDiv.className = "flex gap-3";
+        typingDiv.innerHTML = `
+        <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-xl" style="background: linear-gradient(135deg, #FF007A, #FF00F2);">
+          🤖
+        </div>
+        <div class="inline-block px-4 py-3 rounded-2xl rounded-tl-sm" style="background: #2a2a2a;">
+          <div class="flex gap-1">
+            <div class="w-2 h-2 rounded-full typing-indicator" style="background: #FF007A;"></div>
+            <div class="w-2 h-2 rounded-full typing-indicator" style="background: #00FFA8; animation-delay: 0.2s;"></div>
+            <div class="w-2 h-2 rounded-full typing-indicator" style="background: #FF00F2; animation-delay: 0.4s;"></div>
+          </div>
+        </div>
+      `;
+        messagesContainer.appendChild(typingDiv);
+        scrollToBottom();
+      }
+
+      // Remove typing indicator
+      function removeTyping() {
+        const typingIndicator = document.getElementById("typing-indicator");
+        if (typingIndicator) {
+          typingIndicator.remove();
+        }
+      }
+
+      // Find bot response
+      function findBotResponse(userMessage) {
+        const lowerMessage = userMessage.toLowerCase();
+
+        for (const [key, data] of Object.entries(botKnowledge)) {
+          if (data.keywords.some((keyword) => lowerMessage.includes(keyword))) {
+            return data.response;
+          }
+        }
+
+        return `Mmm... no estoy seguro de cómo responder a eso. 🤔
+
+Pero puedo ayudarte con:
+• Información sobre servicios
+• Nuestro manifiesto
+• Datos de contacto
+
+¿Sobre qué quieres saber más? ✨`;
+      }
+
+      // Handle user input
+      function handleUserMessage(message) {
+        if (!message.trim()) return;
+
+        addUserMessage(message);
+        showTyping();
+
+        setTimeout(() => {
+          removeTyping();
+          const response = findBotResponse(message);
+          addBotMessage(response);
+
+          setTimeout(() => {
+            renderQuickReplies();
+          }, 300);
+        }, 800 + Math.random() * 800);
+      }
+
+      // Render quick replies
+      function renderQuickReplies() {
+        const container = document.getElementById("quick-replies");
+        container.innerHTML = "";
+
+        quickReplies.forEach((reply) => {
+          const button = document.createElement("button");
+          button.className =
+            "px-3 py-1.5 rounded-full font-semibold text-xs transition-all hover:scale-105";
+          button.style.cssText =
+            "background: #1a1a1a; color: #FFFFFF; border: 2px solid #FF007A;";
+          button.textContent = reply.text;
+          button.addEventListener("click", () => {
+            handleUserMessage(reply.text);
+          });
+          container.appendChild(button);
+        });
+      }
+
+      // Scroll to bottom
+      function scrollToBottom() {
+        const chatMessages = document.getElementById("chat-messages");
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      // Form submit
+      document.getElementById("chat-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const input = document.getElementById("user-input");
+        const message = input.value;
+        handleUserMessage(message);
+        input.value = "";
+      });
+
       async function onConfigChange(config) {
-        const mainTitle = document.getElementById("main-title");
         const tagline = document.getElementById("tagline");
         const subtitle = document.getElementById("subtitle");
         const aboutTitle = document.getElementById("about-title");
         const manifestoTitle = document.getElementById("manifesto-title");
 
-        if (mainTitle)
-          mainTitle.textContent = config.main_title || defaultConfig.main_title;
         if (tagline)
           tagline.textContent = config.tagline || defaultConfig.tagline;
         if (subtitle)
@@ -518,15 +1557,8 @@
         document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
         document.body.style.fontSize = `${baseSize}px`;
 
-        if (mainTitle)
-          mainTitle.style.color =
-            config.primary_neon || defaultConfig.primary_neon;
-        if (tagline)
-          tagline.style.color =
-            config.secondary_neon || defaultConfig.secondary_neon;
-        if (subtitle)
-          subtitle.style.color =
-            config.tertiary_neon || defaultConfig.tertiary_neon;
+        if (tagline) tagline.style.color = "#FF6B00";
+        if (subtitle) subtitle.style.color = "#FF007A";
         if (manifestoTitle)
           manifestoTitle.style.color =
             config.accent_neon || defaultConfig.accent_neon;
@@ -592,7 +1624,6 @@
 
       function mapToEditPanelValues(config) {
         return new Map([
-          ["main_title", config.main_title || defaultConfig.main_title],
           ["tagline", config.tagline || defaultConfig.tagline],
           ["subtitle", config.subtitle || defaultConfig.subtitle],
           ["about_title", config.about_title || defaultConfig.about_title],
@@ -611,6 +1642,191 @@
           mapToEditPanelValues,
         });
       }
+
+      // Mobile Menu Functionality
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuLinks = document.querySelectorAll(".mobile-menu-link");
+      let isMenuOpen = false;
+
+      mobileMenuBtn.addEventListener("click", () => {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+          mobileMenu.style.transform = "translateX(0)";
+        } else {
+          mobileMenu.style.transform = "translateX(100%)";
+        }
+      });
+
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          isMenuOpen = false;
+          mobileMenu.style.transform = "translateX(100%)";
+        });
+      });
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Service Cards Modal
+      const serviceData = {
+        branding: {
+          icon: "🎨",
+          title: "Branding",
+          description: "Identidad visual que marca tendencia",
+          details: [
+            "✨ Diseño de logo y sistema de identidad",
+            "🎨 Paletas de color y tipografías únicas",
+            "📐 Manual de marca completo",
+            "💫 Aplicaciones en diferentes medios",
+            "🔥 Estrategia de posicionamiento visual",
+          ],
+        },
+        apps: {
+          icon: "🖥️",
+          title: "Apps & Sites",
+          description: "Experiencias digitales que slayean",
+          details: [
+            "💻 Desarrollo web responsive",
+            "📱 Aplicaciones móviles nativas",
+            "⚡ Optimización de rendimiento",
+            "🔒 Seguridad y escalabilidad",
+            "🚀 Deploy y mantenimiento",
+          ],
+        },
+        uxui: {
+          icon: "✨",
+          title: "UX-UI",
+          description: "Diseño centrado en la experiencia",
+          details: [
+            "🧠 Research y análisis de usuarios",
+            "📊 Arquitectura de información",
+            "🎯 Prototipos interactivos",
+            "💡 Testing y validación",
+            "🎨 Interfaces intuitivas",
+          ],
+        },
+        social: {
+          icon: "📱",
+          title: "Social Media",
+          description: "Contenido que conecta",
+          details: [
+            "📸 Creación de contenido visual",
+            "📝 Copywriting estratégico",
+            "📈 Análisis de métricas",
+            "🎯 Estrategia de engagement",
+            "✨ Gestión de comunidades",
+          ],
+        },
+        storytelling: {
+          icon: "📖",
+          title: "Storytelling",
+          description: "Narrativas que inspiran",
+          details: [
+            "✍️ Narrativas de marca",
+            "🎬 Contenido audiovisual",
+            "💬 Comunicación auténtica",
+            "🌟 Historias que conectan",
+            "🎭 Brand voice",
+          ],
+        },
+        strategy: {
+          icon: "🔮",
+          title: "Strategy",
+          description: "Estrategias reales",
+          details: [
+            "🎯 Análisis de mercado",
+            "📊 Planificación estratégica",
+            "💡 Innovación y tendencias",
+            "🚀 Roadmap de crecimiento",
+            "📈 Medición de resultados",
+          ],
+        },
+      };
+
+      const modal = document.getElementById("service-modal");
+      const closeModalBtn = document.getElementById("close-modal");
+      const modalIcon = document.getElementById("modal-icon");
+      const modalTitle = document.getElementById("modal-title");
+      const modalDescription = document.getElementById("modal-description");
+      const modalDetails = document.getElementById("modal-details");
+
+      function openModal(serviceKey) {
+        const service = serviceData[serviceKey];
+        modalIcon.textContent = service.icon;
+        modalTitle.textContent = service.title;
+        modalDescription.textContent = service.description;
+        modalDetails.innerHTML = service.details
+          .map((detail) => `<p class="text-lg">${detail}</p>`)
+          .join("");
+
+        modal.style.opacity = "1";
+        modal.style.pointerEvents = "auto";
+        modal.querySelector(".max-w-2xl").style.transform = "scale(1)";
+      }
+
+      function closeModal() {
+        modal.style.opacity = "0";
+        modal.style.pointerEvents = "none";
+        modal.querySelector(".max-w-2xl").style.transform = "scale(0.9)";
+      }
+
+      const serviceCards = document.querySelectorAll(".service-card");
+      serviceCards.forEach((card, index) => {
+        const serviceKeys = [
+          "branding",
+          "apps",
+          "uxui",
+          "social",
+          "storytelling",
+          "strategy",
+        ];
+        card.addEventListener("click", () => openModal(serviceKeys[index]));
+      });
+
+      closeModalBtn.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      // Initialize chat when page loads
+      window.addEventListener("load", initChat);
+
+      // Chat toggle functionality
+      const chatToggle = document.getElementById("chat-toggle");
+      const chatWindow = document.getElementById("chat-window");
+      const chatClose = document.getElementById("chat-close");
+      let isChatOpen = false;
+
+      function openChat() {
+        isChatOpen = true;
+        chatWindow.style.opacity = "1";
+        chatWindow.style.pointerEvents = "auto";
+        chatWindow.style.transform = "translateY(0)";
+        chatToggle.style.transform = "scale(0)";
+      }
+
+      function closeChat() {
+        isChatOpen = false;
+        chatWindow.style.opacity = "0";
+        chatWindow.style.pointerEvents = "none";
+        chatWindow.style.transform = "translateY(4px)";
+        chatToggle.style.transform = "scale(1)";
+      }
+
+      chatToggle.addEventListener("click", openChat);
+      chatClose.addEventListener("click", closeChat);
     </script>
     <script>
       (function () {
@@ -619,7 +1835,7 @@
           if (b) {
             var d = b.createElement("script");
             d.innerHTML =
-              "window.__CF$cv$params={r:'9b5e2bcfa755eef2',t:'MTc2NzA2MjQxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+              "window.__CF$cv$params={r:'9b5f1b66b1c1eef2',t:'MTc2NzA3MjIyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
             b.getElementsByTagName("head")[0].appendChild(d);
           }
         }
