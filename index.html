@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delulu Future Dev 🪩</title>
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&amp;family=Inter:wght@400;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .float-animation {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .rotate-slow {
+        animation: rotate 20s linear infinite;
+      }
+
+      .font-display {
+        font-family: "Black Ops One", cursive;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .font-body {
+        font-family: "Inter", sans-serif;
+      }
+
+      .gradient-border {
+        position: relative;
+        background: linear-gradient(
+          45deg,
+          #ff007a,
+          #ff8c00,
+          #ffe600,
+          #b5ff00,
+          #00e934,
+          #00ffa8,
+          #ff00f2
+        );
+        padding: 3px;
+        border-radius: 20px;
+      }
+
+      .gradient-border-inner {
+        background: #000000;
+        border-radius: 17px;
+        padding: 2rem;
+      }
+
+      .card-neon {
+        transition: all 0.3s ease;
+      }
+
+      .card-neon:hover {
+        transform: translateY(-5px);
+      }
+    </style>
+    <style>
+      @view-transition {
+        navigation: auto;
+      }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  </head>
+  <body class="h-full font-body overflow-auto" style="background: #000000">
+    <div class="w-full h-full">
+      <!-- Hero Section -->
+      <section
+        class="relative min-h-screen flex items-center justify-center px-4 py-20"
+        style="background: linear-gradient(180deg, #000000 0%, #1a0033 100%)"
+      >
+        <!-- Decorative Elements -->
+        <div
+          class="absolute top-20 left-10 w-32 h-32 rounded-full float-animation"
+          style="
+            background: radial-gradient(circle, #ff007a 0%, transparent 70%);
+            opacity: 0.3;
+          "
+        ></div>
+        <div
+          class="absolute bottom-40 right-20 w-40 h-40 rounded-full float-animation"
+          style="
+            background: radial-gradient(circle, #00ffa8 0%, transparent 70%);
+            opacity: 0.3;
+            animation-delay: 1s;
+          "
+        ></div>
+        <div class="absolute top-1/2 left-1/4 text-8xl opacity-10 rotate-slow">
+          🪩
+        </div>
+        <div class="max-w-6xl mx-auto text-center relative z-10">
+          <h1
+            id="main-title"
+            class="font-display text-6xl md:text-8xl lg:text-9xl mb-6"
+            style="color: #ff007a; line-height: 1.1"
+          >
+            DELULU FUTURE DEV
+          </h1>
+          <p
+            id="tagline"
+            class="text-3xl md:text-5xl font-bold mb-4"
+            style="color: #ffe600"
+          >
+            Delulu es de Solu 💅
+          </p>
+          <p
+            id="subtitle"
+            class="text-xl md:text-2xl mb-12"
+            style="color: #00ffa8"
+          >
+            Dream it. Build it. Slay it.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <span
+              class="px-6 py-3 rounded-full text-black font-bold text-lg"
+              style="background: #ff007a"
+              >Diseño</span
+            >
+            <span
+              class="px-6 py-3 rounded-full text-black font-bold text-lg"
+              style="background: #ff8c00"
+              >Desarrollo</span
+            >
+            <span
+              class="px-6 py-3 rounded-full text-black font-bold text-lg"
+              style="background: #ffe600"
+              >Estrategia</span
+            >
+            <span
+              class="px-6 py-3 rounded-full text-black font-bold text-lg"
+              style="background: #b5ff00"
+              >Cultura</span
+            >
+            <span
+              class="px-6 py-3 rounded-full text-black font-bold text-lg"
+              style="background: #00e934"
+              >Comunidad</span
+            >
+          </div>
+        </div>
+      </section>
+      <!-- About Section -->
+      <section class="py-20 px-4" style="background: #000000">
+        <div class="max-w-6xl mx-auto">
+          <h2
+            id="about-title"
+            class="font-display text-5xl md:text-6xl mb-12 text-center"
+            style="color: #ff8c00"
+          >
+            🌈 Quiénes somos
+          </h2>
+          <div class="gradient-border mb-12">
+            <div class="gradient-border-inner">
+              <p
+                class="text-xl md:text-2xl leading-relaxed"
+                style="color: #ffffff"
+              >
+                Somos <strong style="color: #ff007a">Delulu Future Dev</strong>,
+                un estudio creativo-tech nacido del caos, la cultura pop y la
+                necesidad de crear cosas que realmente vibren. Nos movemos entre
+                el arte y el algoritmo, entre la intuición y el dato, entre el
+                meme y el método.
+              </p>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div
+              class="card-neon p-8 rounded-3xl"
+              style="
+                background: linear-gradient(135deg, #1a0033 0%, #000000 100%);
+              "
+            >
+              <h3 class="text-3xl font-bold mb-4" style="color: #ffe600">
+                No somos una agencia
+              </h3>
+              <p class="text-lg" style="color: #cccccc">
+                Somos un laboratorio de posibilidades donde diseñadores,
+                desarrolladores, estrategas, gamers, storytellers y creativxs
+                del futuro se juntan para hacer magia digital.
+              </p>
+            </div>
+            <div
+              class="card-neon p-8 rounded-3xl"
+              style="
+                background: linear-gradient(135deg, #001a1a 0%, #000000 100%);
+              "
+            >
+              <h3 class="text-3xl font-bold mb-4" style="color: #00ffa8">
+                ✨ El futuro lo diseñamos
+              </h3>
+              <p class="text-lg" style="color: #cccccc">
+                Porque el futuro no lo predecimos, lo diseñamos en colaboración.
+                Aquí la creatividad es inclusiva, expansiva y sin gatekeeping.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Vision Section -->
+      <section
+        class="py-20 px-4"
+        style="background: linear-gradient(180deg, #000000 0%, #330019 100%)"
+      >
+        <div class="max-w-6xl mx-auto text-center">
+          <h2
+            class="font-display text-5xl md:text-6xl mb-8"
+            style="color: #ff00f2"
+          >
+            💭 Nuestra visión
+          </h2>
+          <p class="text-2xl md:text-3xl font-bold mb-6" style="color: #ffffff">
+            Crear futuro con propósito, código y glitter.
+          </p>
+          <div class="gradient-border max-w-4xl mx-auto">
+            <div class="gradient-border-inner">
+              <p class="text-xl leading-relaxed" style="color: #cccccc">
+                Ser una comunidad creativa global donde la imaginación, la
+                tecnología y la empatía se fusionan para construir un futuro más
+                bello, más accesible y más humano. Queremos un mundo donde las
+                ideas delulu se vuelvan solu, donde soñar no sea ridículo, sino
+                revolucionario.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Values Section -->
+      <section class="py-20 px-4" style="background: #000000">
+        <div class="max-w-6xl mx-auto">
+          <h2
+            class="font-display text-5xl md:text-6xl mb-16 text-center"
+            style="color: #b5ff00"
+          >
+            💫 Nuestros valores
+          </h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div
+              class="card-neon p-8 rounded-3xl text-center"
+              style="background: #0a0a0a"
+            >
+              <div class="text-6xl mb-4">🌍</div>
+              <h3 class="text-2xl font-bold mb-4" style="color: #ff007a">
+                Inclusividad radical
+              </h3>
+              <p class="text-lg" style="color: #cccccc">
+                Aquí todxs caben. Celebramos lo diverso porque es lo que hace al
+                internet más interesante.
+              </p>
+            </div>
+            <div
+              class="card-neon p-8 rounded-3xl text-center"
+              style="background: #0a0a0a"
+            >
+              <div class="text-6xl mb-4">�����️</div>
+              <h3 class="text-2xl font-bold mb-4" style="color: #ff8c00">
+                Creatividad sin fronteras
+              </h3>
+              <p class="text-lg" style="color: #cccccc">
+                No creemos en cajas, creemos en conexiones. Multidisciplinario o
+                nada.
+              </p>
+            </div>
+            <div
+              class="card-neon p-8 rounded-3xl text-center"
+              style="background: #0a0a0a"
+            >
+              <div class="text-6xl mb-4">💡</div>
+              <h3 class="text-2xl font-bold mb-4" style="color: #ffe600">
+                Tecnología con alma
+              </h3>
+              <p class="text-lg" style="color: #cccccc">
+                El código también puede tener emoción. Lo tech no tiene que ser
+                frío.
+              </p>
+            </div>
+            <div
+              class="card-neon p-8 rounded-3xl text-center"
+              style="background: #0a0a0a"
+            >
+              <div class="text-6xl mb-4">🔮</div>
+              <h3 class="text-2xl font-bold mb-4" style="color: #b5ff00">
+                Cultura + Estrategia
+              </h3>
+              <p class="text-lg" style="color: #cccccc">
+                No somos parte del ruido, somos la frecuencia.
+              </p>
+            </div>
+            <div
+              class="card-neon p-8 rounded-3xl text-center"
+              style="background: #0a0a0a"
+            >
+              <div class="text-6xl mb-4">🫶</div>
+              <h3 class="text-2xl font-bold mb-4" style="color: #00e934">
+                Colaboración y comunidad
+              </h3>
+              <p class="text-lg" style="color: #cccccc">
+                El ego no innova, las comunidades sí.
+              </p>
+            </div>
+            <div
+              class="card-neon p-8 rounded-3xl text-center"
+              style="background: #0a0a0a"
+            >
+              <div class="text-6xl mb-4">⚡</div>
+              <h3 class="text-2xl font-bold mb-4" style="color: #00ffa8">
+                Impacto real
+              </h3>
+              <p class="text-lg" style="color: #cccccc">
+                Compartir conocimiento es el nuevo liderazgo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Services Section -->
+      <section
+        class="py-20 px-4"
+        style="background: linear-gradient(180deg, #000000 0%, #001a33 100%)"
+      >
+        <div class="max-w-6xl mx-auto">
+          <h2
+            class="font-display text-5xl md:text-6xl mb-16 text-center"
+            style="color: #00ffa8"
+          >
+            ⚡ Qué hacemos
+          </h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="gradient-border">
+              <div class="gradient-border-inner">
+                <h3 class="text-3xl font-bold mb-4" style="color: #ff007a">
+                  🖥️ Apps &amp; Sites que slayean
+                </h3>
+                <p class="text-lg" style="color: #cccccc">
+                  Desarrollamos experiencias digitales tan fluidas que hacen
+                  match con tu propósito y tu público.
+                </p>
+              </div>
+            </div>
+            <div class="gradient-border">
+              <div class="gradient-border-inner">
+                <h3 class="text-3xl font-bold mb-4" style="color: #ff8c00">
+                  🔮 Tendencias que se convierten en ventaja
+                </h3>
+                <p class="text-lg" style="color: #cccccc">
+                  Coolhunting, análisis y cultura pop mezclados con data.
+                  Detectamos lo que vibra antes de que explote.
+                </p>
+              </div>
+            </div>
+            <div class="gradient-border">
+              <div class="gradient-border-inner">
+                <h3 class="text-3xl font-bold mb-4" style="color: #ffe600">
+                  🎨 Identidad de marca con vibe
+                </h3>
+                <p class="text-lg" style="color: #cccccc">
+                  Creamos tu voz, look y energía. Tu marca, pero en su versión
+                  más icónica.
+                </p>
+              </div>
+            </div>
+            <div class="gradient-border">
+              <div class="gradient-border-inner">
+                <h3 class="text-3xl font-bold mb-4" style="color: #b5ff00">
+                  �� Contenido que se siente
+                </h3>
+                <p class="text-lg" style="color: #cccccc">
+                  Fotos, diseño, copy, storytelling y estética emocional.
+                  Conexión &gt; atención.
+                </p>
+              </div>
+            </div>
+            <div class="gradient-border">
+              <div class="gradient-border-inner">
+                <h3 class="text-3xl font-bold mb-4" style="color: #00e934">
+                  🤝 Comunidades digitales con alma
+                </h3>
+                <p class="text-lg" style="color: #cccccc">
+                  Estrategias para crear fandoms reales, no followers vacíos.
+                </p>
+              </div>
+            </div>
+            <div class="gradient-border">
+              <div class="gradient-border-inner">
+                <h3 class="text-3xl font-bold mb-4" style="color: #00ffa8">
+                  📰 Editorial &amp; Tendencias
+                </h3>
+                <p class="text-lg" style="color: #cccccc">
+                  Revista y radar digital sobre lo que vibra en diseño, cultura
+                  y tecnología.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Manifesto Section -->
+      <section
+        class="py-20 px-4"
+        style="background: linear-gradient(180deg, #001a33 0%, #1a0033 100%)"
+      >
+        <div class="max-w-4xl mx-auto text-center">
+          <h2
+            id="manifesto-title"
+            class="font-display text-5xl md:text-6xl mb-12"
+            style="color: #ff00f2"
+          >
+            ✨ Manifiesto Delulu
+          </h2>
+          <div
+            class="space-y-6 text-xl md:text-2xl leading-relaxed"
+            style="color: #ffffff"
+          >
+            <p>
+              💭 Creemos que imaginar sin miedo es el primer paso para cambiar
+              el mundo.
+            </p>
+            <p>👾 Que la tecnología puede ser inclusiva, bella y humana.</p>
+            <p>
+              🎨 Que el diseño no solo comunica, sino cura, inspira y conecta.
+            </p>
+            <p>🌐 Que el futuro no es un destino, es un diseño colaborativo.</p>
+            <p
+              class="text-3xl md:text-4xl font-bold mt-8"
+              style="color: #ffe600"
+            >
+              Y sí: somos delulu. Pero también somos solu.
+            </p>
+            <p class="text-2xl" style="color: #00ffa8">
+              Porque los sueños sin estrategia son fantasía,<br />
+              y las estrategias sin sueños son aburridas.
+            </p>
+            <p class="font-display text-4xl mt-12" style="color: #ff007a">
+              🚀 We dream in pixels. We build with purpose
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Footer -->
+      <footer
+        class="py-12 px-4 text-center"
+        style="background: #000000; border-top: 2px solid #ff007a"
+      >
+        <div class="max-w-6xl mx-auto">
+          <p class="text-2xl font-display mb-4" style="color: #ff007a">
+            DELULU FUTURE DEV 🪩
+          </p>
+          <p class="text-lg" style="color: #cccccc">Delulu es de Solu 💅</p>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const defaultConfig = {
+        main_title: "DELULU FUTURE DEV",
+        tagline: "Delulu es de Solu 💅",
+        subtitle: "Dream it. Build it. Slay it.",
+        about_title: "🌈 Quiénes somos",
+        manifesto_title: "✨ Manifiesto Delulu",
+        background_color: "#000000",
+        primary_neon: "#FF007A",
+        secondary_neon: "#FFE600",
+        tertiary_neon: "#00FFA8",
+        accent_neon: "#FF00F2",
+        font_family: "Inter",
+        font_size: 16,
+      };
+
+      async function onConfigChange(config) {
+        const mainTitle = document.getElementById("main-title");
+        const tagline = document.getElementById("tagline");
+        const subtitle = document.getElementById("subtitle");
+        const aboutTitle = document.getElementById("about-title");
+        const manifestoTitle = document.getElementById("manifesto-title");
+
+        if (mainTitle)
+          mainTitle.textContent = config.main_title || defaultConfig.main_title;
+        if (tagline)
+          tagline.textContent = config.tagline || defaultConfig.tagline;
+        if (subtitle)
+          subtitle.textContent = config.subtitle || defaultConfig.subtitle;
+        if (aboutTitle)
+          aboutTitle.textContent =
+            config.about_title || defaultConfig.about_title;
+        if (manifestoTitle)
+          manifestoTitle.textContent =
+            config.manifesto_title || defaultConfig.manifesto_title;
+
+        const baseSize = config.font_size || defaultConfig.font_size;
+        const customFont = config.font_family || defaultConfig.font_family;
+        const baseFontStack = "Inter, sans-serif";
+
+        document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+        document.body.style.fontSize = `${baseSize}px`;
+
+        if (mainTitle)
+          mainTitle.style.color =
+            config.primary_neon || defaultConfig.primary_neon;
+        if (tagline)
+          tagline.style.color =
+            config.secondary_neon || defaultConfig.secondary_neon;
+        if (subtitle)
+          subtitle.style.color =
+            config.tertiary_neon || defaultConfig.tertiary_neon;
+        if (manifestoTitle)
+          manifestoTitle.style.color =
+            config.accent_neon || defaultConfig.accent_neon;
+      }
+
+      function mapToCapabilities(config) {
+        return {
+          recolorables: [
+            {
+              get: () => config.primary_neon || defaultConfig.primary_neon,
+              set: (value) => {
+                config.primary_neon = value;
+                window.elementSdk.setConfig({ primary_neon: value });
+              },
+            },
+            {
+              get: () => config.secondary_neon || defaultConfig.secondary_neon,
+              set: (value) => {
+                config.secondary_neon = value;
+                window.elementSdk.setConfig({ secondary_neon: value });
+              },
+            },
+            {
+              get: () => config.tertiary_neon || defaultConfig.tertiary_neon,
+              set: (value) => {
+                config.tertiary_neon = value;
+                window.elementSdk.setConfig({ tertiary_neon: value });
+              },
+            },
+            {
+              get: () => config.accent_neon || defaultConfig.accent_neon,
+              set: (value) => {
+                config.accent_neon = value;
+                window.elementSdk.setConfig({ accent_neon: value });
+              },
+            },
+            {
+              get: () =>
+                config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              },
+            },
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            },
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            },
+          },
+        };
+      }
+
+      function mapToEditPanelValues(config) {
+        return new Map([
+          ["main_title", config.main_title || defaultConfig.main_title],
+          ["tagline", config.tagline || defaultConfig.tagline],
+          ["subtitle", config.subtitle || defaultConfig.subtitle],
+          ["about_title", config.about_title || defaultConfig.about_title],
+          [
+            "manifesto_title",
+            config.manifesto_title || defaultConfig.manifesto_title,
+          ],
+        ]);
+      }
+
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues,
+        });
+      }
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'9b5e2bcfa755eef2',t:'MTc2NzA2MjQxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
